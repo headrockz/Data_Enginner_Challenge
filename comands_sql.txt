@@ -1,0 +1,40 @@
+SELECT distance, time, gallons, MAX(miles_hour) FROM infos
+
+SELECT * FROM locations
+
+
+// criando tabela de testes
+CREATE TABLE IF NOT EXISTS "test" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"distance"	INTEGER NOT NULL,
+	"time"	REAL NOT NULL,
+	"gallons"	REAL NOT NULL,
+	"miles_hour" REAL NOT NULL,
+    "fk_departed" INTEGER NOT NULL,
+    "fk_arrived" INTEGER NOT NULL
+);
+
+
+// criando tabela infos
+CREATE TABLE IF NOT EXISTS "infos" (
+	"id_info"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"distance"	REAL NOT NULL,
+	"time"	REAL NOT NULL,
+	"gallons"	REAL NOT NULL,
+	"miles_hour"	REAL NOT NULL,
+	"fk_departed"	INTEGER NOT NULL,
+	"fk_arrived"	INTEGER NOT NULL,
+	FOREIGN KEY("fk_arrived") REFERENCES "locations"("id_location"),
+	FOREIGN KEY("fk_departed") REFERENCES "locations"("id_departed")
+);
+
+// criando tabela locations
+CREATE TABLE IF NOT EXISTS "locations" (
+	"id_location" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"longitude"	TEXT,
+	"latitude"	TEXT,
+	"gallons_arrival"	REAL,
+	"gallons_departure"	REAL,
+	"arrived"	TEXT,
+	"departed"	TEXT 
+);
