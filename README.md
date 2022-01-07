@@ -60,5 +60,3 @@ Distance | time | gallons | miles_hour | longitude_arrived | latitude_arrived | 
 Este comando traz a tupla onde a velocidade foi a maior calculada, bastando apenas dividir a distancia pelos galões gastos
 
 `152 / 5.1 ~= 29.81`
-
-Ou seja/ se aproximando mais da letra D: `29.79 miles per gallon`
